@@ -1,0 +1,83 @@
+\chapter{Lecture 1}
+\section{The Meaning of "Classical"}
+Meaning non-quantum. 
+\subsection{Analytical Mechanics}
+\begin{itemize}
+    \item Abstraction of Newton's mechanics, where everything is vectors
+    \item Reduces a vector problem to an energy problem
+\end{itemize}
+
+\subsection{Lagrange - Hamiltonian formalism}
+\paragraph{Lagrangian}
+\[
+L = K - V
+\]
+\paragraph{Hamiltonian}
+\[
+H = K + V
+\]
+\begin{itemize}
+    \item Algorithmic methods for solving problems
+    \begin{enumerate}
+        \item Find the generalized coordinates
+        \item Express the kinetic energy in terms of the generalized coordinates
+        \item Derive equations of motion (E.O.M) by a recipe
+        \item Solve the differential equations. 
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Find the Generalized Coordinates}
+\subsubsection{Example: Pendulum in a Plane}
+\begin{itemize}
+    \item Has length $l$ and mass $m$
+    \item $x/y$-coordinates are not the best choice. 
+    \item Newton: $m \vec{a} = m \vec{g} + \vec{↓} $ and $\left|\vec{r}\right| = l$ with $\vec{r} = (x,y)$
+\end{itemize}
+\paragraph{Step 1: Find the generalized coordinates}
+.\newline
+There is a \textbf{constraint equation}:
+\[
+f(\vec{r}) = \left|\vec{r}\right| - l = 0
+\]
+The rope has a \textbf{constraint force} $\vec{↓}$, which makes the equation true. We can rewrite $\vec{r}$ using a single coordinate $θ$. 
+\[
+\vec{r}  = (x,y) = (l \sin \theta, -l \cos \theta)
+\]
+\paragraph{Step 2: Find the Kinetic Energy}
+.\newline
+This lets us define the kinetic energy as follows:
+\[
+K = \frac{1}{2}mv^2 = \frac{1}{2}m(\dot{x} ^2 + \dot{y}^2)
+\]
+\[
+K = \frac{1}{2}m \left((l\cos θ ⋅ \dot{θ})^2 + (l\sin θ ⋅ \dot{θ})^2\right) = \frac{1}{2}ml^2 \dot{θ}^2
+\]
+\[
+V = mgy = -mgl \cos θ
+\]
+
+\paragraph{Generalized Coordinates:}
+Remaining coordinates (degrees of freedom) after the constraint equation has been applied. In a 3D system with N bodies with coordinates $\vec{r}_i$ where $i ∈ [1,N]$, with $M$ \textbf{holonomic constraints} (velocity independent). 
+\[
+f_j(\vec{r}_1, \vec{r}_2, ..., \vec{r}_N, t) = 0 \quad j ∈ [1,M]
+\]
+The degrees of freedom are $d = 3N - M$ where the number 3 comes from the 3 dimensions. 
+
+The generalized coordinates are written as $q_k$ with $k ∈ [1,2, \ldots ,d]$, and the Cartesian coordinates written as:
+\[
+\vec{r}_i = \vec{r}_i(q_1, q_2, \ldots , q_d, t) \quad | \quad \vec{r}_i = \vec{r}_i(q,t) \quad , q = \left\{q_1, q_2, \ldots  q_d\right\}
+\]
+\textbf{Notice how the generalized coordinates are not vectors, but the Cartesian coordinates are.}
+
+\paragraph{Configuration Space}
+The generalized coordinates $q = \left\{q_1, q_2, \ldots  q_d\right\}$ of a $d$-dimensional space (manifold) called \textbf{configuration space}, With $N$ bodies which position are given by the $3N$-dimenstional vector $\vec{R}= (\vec{r}_1, \vec{r}_2, \ldots  \vec{r}_{N})$. In generalized coordinates $\vec{R} = \vec{R}(q_1, q_2, \ldots  q_d, t)$. This is a hyper-surface of dimension $d = 3N - M$ in the $3N$-dimensional space with $q = \left\{q_1, q_2, \ldots  q_d\right\}$.
+
+\paragraph{Time independent constraints}
+\begin{itemize}
+    \item Time independent constraint equations
+    \item The surface is fixed
+    \item The time evolution of $\vec{R}$ is a curve on the surface $\vec{R}(t) = \vec{R}(q(t))$ and $\vec{V} = \vec{R} = \frac{\mathrm{d}\vec{R}}{\mathrm{d}t}$
+    \item At a fixed point in time, moving the coordinates $q$ a small amount gives a vector tangent to the surface. 
+\end{itemize}
+
+The Cartesian coordinates are dependent on the general coordinates which are time dependent. This is solved by differential equations. 
