@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage[mathletters]{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{enumerate}
+\newtheorem{theorem}{Theorem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\setlength{\parindent}{0cm}
+\usepackage{graphics}
+\usepackage{graphicx} % Required for including images
+\usepackage{subcaption}
+\usepackage{bigintcalc}
+\usepackage{pythonhighlight} %for pythonkode \begin{python}   \end{python}
+\usepackage{appendix}
+\usepackage{arydshln}
+\usepackage{physics}
+\usepackage{booktabs} 
+\usepackage{adjustbox}
+\usepackage{mdframed}
+\usepackage{relsize}
+\usepackage{physics}
+\usepackage[thinc]{esdiff}
+\usepackage{esint}  %for lukket-linje-integral
+\usepackage{xfrac} %for sfrac
+\usepackage{hyperref} %for linker, må ha med hypersetup
+\usepackage[noabbrev, nameinlink]{cleveref} % to be loaded after hyperref
+\usepackage{amssymb} %\mathbb{R} for reelle tall, \mathcal{B} for "matte"-font
+\usepackage{listings} %for kode/lstlisting
+\usepackage{verbatim}
+\usepackage{graphicx,wrapfig,lipsum,caption} %for wrapping av bilder
+\usepackage{mathtools} %for \abs{x}
+\usepackage[english]{babel}
+\usepackage{cancel}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\author{Oskar Idland}
+\title{Oblig 06}
+\date{}
+\begin{document}
+\maketitle
+%\tableofcontents
+\newpage
+\section*{Problem 1}
+\subsection*{a)}
+\begin{itemize}
+    \item $\displaystyle C_{ν} = T^{μ}_{ν}A_{μ}$ \newline
+    As the index is repeated on the right-hand side, we can sum over it as it is raised and lowered. This is not the case as it is raised twice, so the index can not depend on it. A corrected version should be $\displaystyle C_{ν} = T^{μ}_{ν}A_{μ}$. 
+    \item $\displaystyle D_{ν} = T^{μ}_{ν} A_{μ}$ \newline
+    This is consistent as the $μ$-index is raised and lowered once, and therefore summed over. $ν$ appears once on the left-hand side and the right-hand side can depend on it.
+    \item $\displaystyle E_{μνρ} = T_{μν} S^{ν}_{ρ}$ \newline
+    The $ν$-index is summed over as it is repeated. Therefore, the left-hand side can not depend on it. It should rather look like this: $\displaystyle E_{μρ} = T_{μν} S^{ν}_{ρ}$. 
+    \item $\displaystyle G = S_{μν} T^{ν}_{α}A^{α}$ \newline
+    As we do not sum over the $μ$-index both sides must depend on it and we must rewrite it to: $\displaystyle G_{μ} = S_{μν} T^{ν}_{α}A^{α}$.
+\end{itemize}
+
+\subsection*{b)}
+To follow the rules of covariant notation we must obey the following:
+\begin{itemize}
+    \item Zero free indices is a scalar. 
+    \item One free index is a vector.
+    \item Two free indices is a tensor of rank 2.
+\end{itemize}
+We can therefore combine the products of the vectors $A$, $B$ and the tensor $T$ in the following manner:
+\begin{itemize}
+    \item Scalar: $\displaystyle A^{μ}A_{μ} \ , \ B^{μ}B_{μ} \ , \ A^{μ}B_{μ} \ , \ T^{μν}T_{μν} \ , \ T^{μν}T_{νμ} \ , \ A^{μ}B^{ν}T_{μν} \ , \ A^{ν}B^{μ}T_{μν}$ 
+    \item Vector: $\displaystyle A_{μ}T^{μν} \ , \ A_{ν}T^{μν} \ , \ B_{μ}T^{μν} \ , \ B_{ν}T^{μν}$
+    \item Tensors: $\displaystyle A^{μ}B^{ν}$
+\end{itemize}
+
+\subsection*{c)}
+As each component of the four-vector is independent of the others we can get the four derivatives using the fact that $x_{ν} = g_{ρν}x^{ρ}$:
+\[
+∂_{μ}x^{ν} = \frac{∂ x^{ν}}{∂ x^{μ}} = δ^{ν}_{μ}
+\]
+\[
+∂_{μ}x_{ν} = \frac{∂ x_{ν}}{∂ x^{μ}} = g_{νρ}δ^{ρ}_{μ} = g_{νμ}
+\]
+\[
+∂_{μ}x^{ν} = \frac{∂ x^{ν}}{∂ x_{μ}} = δ^{ν}_{μ} = 4
+\]
+
+\subsection*{d)}
+The tensor fields:
+\[
+f(x) = x_{μ}x^{μ} \quad , \quad  g^{μ}(x) = x^{μ} \quad , \quad b^{μν}(x) = x^{μ}x^{ν} \quad , \quad h^{μ}(x) = \frac{x^{μ}}{x_{ν}x^{ν}}
+\]
+Before finding the derivatives we represent them as vectors and matrices:
+\[
+f(x) = x_{μ}x^{μ} = (ct \quad x \quad y \quad z) 
+\begin{pmatrix*}[r]
+ ct \\
+ -x \\
+ -y \\
+ -z \\
+\end{pmatrix*} = c^2t^2 - x^2 - y^2 - z^2
+\]
+\[
+g^{μ}(x) = x^{μ} = 
+\begin{pmatrix*}[r]
+ ct \\
+ -x \\
+ -y \\
+ -z \\
+\end{pmatrix*}
+\]
+\[
+b^{μν}(x) = x^{μ}x^{ν} = 
+\begin{pmatrix*}[r]
+ ct \\
+ -x \\
+ -y \\
+ -z \\
+\end{pmatrix*}
+(ct \quad -x \quad -y \quad -z) =
+\begin{pmatrix*}[r]
+ c^2t^2 & -ctx  & -cty & -ctz \\
+-ctx & x^2 & xy & xz \\
+-cty & xy & y^2 & yz \\
+-ctz & xz & yz & z^2 \\
+\end{pmatrix*}
+\]
+\[
+h^{μ}(x) = \frac{x^{μ}}{x_{ν}x^{ν}} = \frac{1}{c^2t^2 - x^2 - y^2 - z^2}
+\begin{pmatrix*}[r]
+ ct \\
+ -x \\
+ -y \\
+ -z \\
+\end{pmatrix*}
+ \]
+Now to find the derivatives:
+\[
+∂_{μ}f(x) = 2x_{μ}
+\]
+\[
+∂_{μ}g^{ν}(x) = 4
+\]
+\[
+∂_{μ}b^{νρ}(x) = 5x^{ν}
+\]
+\[
+∂_{μ}h^{ν}(x) = \frac{2}{x_{ν}x^{ν}}
+\]
+
+\subsection*{e)}
+As the function $χ(x)$ has no free index it must be a scalar. Therefore, $∂^{μ}χ(x)$ is a four-vector. Doing a gauge transformation will just be a change of basis. This does not change the physical observable and is therefore a valid transformation.
+
+\subsection*{f)}
+The electromagnetic field tensor is given by:
+\[
+F^{μν} = ∂^{μ}A^{ν} - ∂^{ν}A^{μ}.
+\]
+The gauge transformation of the potential is given by:
+\[
+A'^{μ} = A^{μ} - ∂^{μ}χ(x).
+\]
+The electromagnetic field tensor after the gauge transformation is given by:
+\[
+F'^{μν} = ∂^{μ}A'^{ν} - ∂^{ν}A'^{μ} = ∂^{μ}(A^{ν} - ∂^{ν}χ(x)) - ∂^{ν}(A^{μ} - ∂^{μ}χ(x))
+\]
+\[
+F'^{μν} = \underbrace{\left(∂^{μ}A^{ν} - ∂^{ν}A^{μ}\right)}_{F^{μν}} - \overbrace{\left(∂^{μ}∂^{ν}χ(x) - ∂^{ν}∂^{μ}χ(x)\right)}^{0}
+\]
+\[
+F'^{μν} = F^{μν}
+\]
+The electromagnetic field tensor is therefore invariant under a gauge transformation.
+\end{document}
